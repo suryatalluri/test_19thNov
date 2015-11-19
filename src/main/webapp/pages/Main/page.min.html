@@ -23,10 +23,25 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 
 
     $scope.switch1Change = function($event, $isolateScope) {
+        if ($scope.Widgets.switch1.datavalue == "List") {
+            $scope.Widgets.panel1.show = true;
+            $scope.panel2.show = false;
+        }
+        if ($scope.Widgets.switch1.datavalue == "Grid") {
+            $scope.Widgets.panel1.show = false;
+            $scope.Widgets.panel2.show = true;
+        }
+    }
 
-    };
 
 }]);
+
+Application.$controller("alertdialog1Controller", ["$scope",
+	function($scope) {
+		"use strict";
+		$scope.ctrlScope = $scope;
+	}
+]);
 </script>
 <script id="Main.variables.json">
 var _MainPage_Variables_ ={};
@@ -40,16 +55,20 @@ var _MainPage_Variables_ ={};
             <wm-composite name="composite1">
                 <wm-label class="col-xs-4" name="label1"></wm-label>
                 <wm-container class="col-xs-8" name="container1">
-                    <wm-switch class="pull-right" name="switch1" dataset="List, Grid" scopedatavalue="switch" on-Change="switch1Change($event, $scope)"></wm-switch>
+                    <wm-switch class="pull-right" name="switch1" dataset="List, Grid" on-change="switch1Change($event, $scope)" datavalue="List"></wm-switch>
                 </wm-container>
             </wm-composite>
             <wm-panel class="panel-primary" title="List" name="panel1">
                 <wm-panel-footer name="panel_footer1"></wm-panel-footer>
             </wm-panel>
-            <wm-panel class="panel-primary" title="Grid" name="panel2">
+            <wm-panel class="panel-primary" title="Grid" name="panel2" show="false">
+                <wm-button class="btn-default" caption="Button" type="button" name="button1" on-click="alertdialog1.show"></wm-button>
                 <wm-panel-footer name="panel_footer2"></wm-panel-footer>
             </wm-panel>
         </wm-page-content>
     </wm-content>
+    <wm-view class="dialog-view" name="view2">
+        <wm-alertdialog name="alertdialog1" on-ok="goToPage-Main"></wm-alertdialog>
+    </wm-view>
 </wm-page>
 </script>
