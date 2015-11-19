@@ -37,8 +37,8 @@ public class Table2ServiceImpl implements Table2Service {
 
     @Autowired
     @Qualifier("Test_19thNov.Table2Dao")
-    private WMGenericDao<Table2, Table1Id> wmGenericDao;
-    public void setWMGenericDao(WMGenericDao<Table2, Table1Id> wmGenericDao){
+    private WMGenericDao<Table2, Table2Id> wmGenericDao;
+    public void setWMGenericDao(WMGenericDao<Table2, Table2Id> wmGenericDao){
         this.wmGenericDao = wmGenericDao;
     }
      @Transactional(readOnly = true, value = "Test_19thNovTransactionManager")
@@ -56,7 +56,7 @@ public class Table2ServiceImpl implements Table2Service {
 
     @Transactional(rollbackFor = EntityNotFoundException.class, value = "Test_19thNovTransactionManager")
     @Override
-    public Table2 delete(Table1Id table2Id) throws EntityNotFoundException {
+    public Table2 delete(Table2Id table2Id) throws EntityNotFoundException {
         LOGGER.debug("Deleting table2 with id: {}" , table2Id);
         Table2 deleted = this.wmGenericDao.findById(table2Id);
         if (deleted == null) {
@@ -83,7 +83,7 @@ public class Table2ServiceImpl implements Table2Service {
 
     @Transactional(readOnly = true, value = "Test_19thNovTransactionManager")
     @Override
-    public Table2 findById(Table1Id id) throws EntityNotFoundException {
+    public Table2 findById(Table2Id id) throws EntityNotFoundException {
         LOGGER.debug("Finding table2 by id: {}" , id);
         Table2 table2=this.wmGenericDao.findById(id);
         if(table2==null){
@@ -97,7 +97,7 @@ public class Table2ServiceImpl implements Table2Service {
     public Table2 update(Table2 updated) throws EntityNotFoundException {
         LOGGER.debug("Updating table2 with information: {}" , updated);
         this.wmGenericDao.update(updated);
-        return this.wmGenericDao.findById((Table1Id)updated.getId());
+        return this.wmGenericDao.findById((Table2Id)updated.getId());
     }
 
     @Transactional(readOnly = true, value = "Test_19thNovTransactionManager")

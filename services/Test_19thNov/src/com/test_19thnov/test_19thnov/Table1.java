@@ -13,8 +13,6 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -38,7 +36,6 @@ public class Table1  implements java.io.Serializable
 
 
 private Table1Id id;
-private Table2 table2;
 
     public Table1() {
     }
@@ -58,15 +55,6 @@ private Table2 table2;
     
     public void setId(Table1Id id) {
         this.id = id;
-    }
-
-@Transient @OneToOne(fetch=FetchType.EAGER, mappedBy="table1")
-    public Table2 getTable2() {
-        return this.table2;
-    }
-    
-    public void setTable2(Table2 table2) {
-        this.table2 = table2;
     }
 
 

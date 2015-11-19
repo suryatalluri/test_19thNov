@@ -1,6 +1,3 @@
-/*Copyright (c) 2015-2016 gmail.com All Rights Reserved.
- This software is the confidential and proprietary information of gmail.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with gmail.com*/
 
 package com.test_19thnov.testproc.controller;
 
@@ -18,28 +15,45 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.beans.factory.annotation.Qualifier;
-import com.test_19thnov.testproc.service.TestprocProcedureExecutorService;
+
+import  com.test_19thnov.testproc.service.TestprocProcedureExecutorService;
 import com.wavemaker.runtime.data.model.CustomProcedure;
 import com.wavemaker.runtime.data.exception.QueryParameterMismatchException;
 import com.wordnik.swagger.annotations.*;
-import com.wavemaker.tools.api.core.annotations.WMAccessVisibility;
-import com.wavemaker.tools.api.core.models.AccessSpecifier;
 
 @RestController(value = "Testproc.ProcedureExecutionController")
+@Api(value = "/Testproc/procedureExecutor", description = "Controller class for procedure execution")
 @RequestMapping("/Testproc/procedureExecutor")
-@Api(description = "Controller class for procedure execution", value = "ProcedureExecutionController")
 public class ProcedureExecutionController {
 
-    private static final Logger LOGGER = LoggerFactory.getLogger(ProcedureExecutionController.class);
+	private static final Logger LOGGER = LoggerFactory.getLogger(ProcedureExecutionController.class);
 
-    @Autowired
-    private TestprocProcedureExecutorService procedureService;
+	@Autowired
+	private TestprocProcedureExecutorService procedureService;
+	
+	@RequestMapping(value = "/procedure/execute/TestProcedure", method = RequestMethod.GET)
+	@ApiOperation(value = "Process request to execute Procedure")
+	public List<Object> executeTestProcedure(
+			@RequestParam(value="City", required=false) java.lang.String City
+			
+		 )
+	     throws QueryParameterMismatchException{
+			LOGGER.debug("Executing named procedure TestProcedure");
 
-    @RequestMapping(value = "/procedure/execute/wm_custom", method = RequestMethod.POST)
-    @ApiOperation(value = "Process request to execute custom Procedure")
-    public List<Object> executeWMCustomProcedure(@RequestBody CustomProcedure procedure) {
-        List<Object> result = procedureService.executeWMCustomProcedure(procedure);
-        LOGGER.debug("got the result {}" + result);
-        return result;
-    }
+		List<Object> result = procedureService.executeTestProcedure( City );
+
+		LOGGER.debug("got the result of named procedure {}", result);
+		return result;
+	}
+	
+
+	@RequestMapping(value = "/procedure/execute/wm_custom", method = RequestMethod.POST)
+	@ApiOperation(value = "Process request to execute custom Procedure")
+	public List<Object> executeWMCustomProcedure(@RequestBody CustomProcedure procedure) {
+		List<Object> result = procedureService.executeWMCustomProcedure(procedure);
+		LOGGER.debug("got the result {}" + result);
+		return result;
+	}
+
 }
+

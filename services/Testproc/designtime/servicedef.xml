@@ -1,10 +1,18 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="Testproc" type="DataService" springFile="Testproc.spring.xml">
+    <operation operationType="procedure" name="TestProcedure">
+        <parameter name="City" typeRef="java.lang.String" isList="false" parameterType="IN"/>
+        <parameter name="total" typeRef="java.lang.Integer" isList="false" parameterType="OUT"/>
+        <return typeRef="TestprocTestProcedurertnType" isList="false"/>
+    </operation>
     <dataobjects>
         <dataobject javaType="com.test_19thnov.testproc.Employee">
             <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
             <element name="name" typeRef="java.lang.String" isList="false" allowNull="true"/>
             <element name="city" typeRef="java.lang.String" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="TestprocTestProcedurertnType">
+            <element name="total" typeRef="java.lang.Integer"/>
         </dataobject>
     </dataobjects>
 </service>

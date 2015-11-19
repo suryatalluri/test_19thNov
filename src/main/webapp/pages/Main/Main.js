@@ -21,7 +21,7 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
     $scope.switch1Change = function($event, $isolateScope) {
         if ($scope.Widgets.switch1.datavalue == "List") {
             $scope.Widgets.panel1.show = true;
-            $scope.panel2.show = false;
+            $scope.Widgets.panel2.show = false;
         }
         if ($scope.Widgets.switch1.datavalue == "Grid") {
             $scope.Widgets.panel1.show = false;
@@ -33,6 +33,13 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 }]);
 
 Application.$controller("alertdialog1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("dialog1Controller", ["$scope",
 	function($scope) {
 		"use strict";
 		$scope.ctrlScope = $scope;

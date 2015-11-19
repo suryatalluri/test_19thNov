@@ -13,8 +13,6 @@ import javax.persistence.AttributeOverrides;
 import javax.persistence.Column;
 import javax.persistence.EmbeddedId;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 
@@ -37,8 +35,7 @@ public class Table2  implements java.io.Serializable
  {
 
 
-private Table1Id id;
-private Table1 table1;
+private Table2Id id;
 
     public Table2() {
     }
@@ -52,21 +49,12 @@ private Table1 table1;
     @AttributeOverrides( {
         @AttributeOverride(name="column2", column=@Column(name="`COLUMN2`", nullable=false) ), 
         @AttributeOverride(name="id", column=@Column(name="`ID`", nullable=false) ) } )
-    public Table1Id getId() {
+    public Table2Id getId() {
         return this.id;
     }
     
-    public void setId(Table1Id id) {
+    public void setId(Table2Id id) {
         this.id = id;
-    }
-
-@OneToOne(fetch=FetchType.EAGER) @PrimaryKeyJoinColumn
-    public Table1 getTable1() {
-        return this.table1;
-    }
-    
-    public void setTable1(Table1 table1) {
-        this.table1 = table1;
     }
 
 

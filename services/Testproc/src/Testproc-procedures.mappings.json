@@ -1,1 +1,1 @@
-{"name":"Testproc","description":"Procedure for Testproc","procedures":[]}
+{"name":"Testproc","description":"Procedure for Testproc","procedures":[{"name":"TestProcedure","procedure":"call Emp(:City, :total)","comment":"","description":null,"returnsSingleResult":false,"procedureParams":[{"paramName":"City","procedureParamType":"IN","valueType":"java.lang.String","testValue":null,"list":false},{"paramName":"total","procedureParamType":"OUT","valueType":"java.lang.Integer","testValue":null,"list":false}],"outputType":null}]}

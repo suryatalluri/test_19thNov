@@ -41,7 +41,7 @@ public interface Table2Service {
 	 * @throws EntityNotFoundException
 	 *             if no table2 is found with the given id.
 	 */
-	public Table2 delete(Table1Id table2Id) throws EntityNotFoundException;
+	public Table2 delete(Table2Id table2Id) throws EntityNotFoundException;
 
 	/**
 	 * Finds all table2s.
@@ -60,7 +60,7 @@ public interface Table2Service {
 	 * @return The found table2. If no table2 is found, this method returns
 	 *         null.
 	 */
-	public Table2 findById(Table1Id id) throws EntityNotFoundException;
+	public Table2 findById(Table2Id id) throws EntityNotFoundException;
 	/**
 	 * Updates the information of a table2.
 	 * 

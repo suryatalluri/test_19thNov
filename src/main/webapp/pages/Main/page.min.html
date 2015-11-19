@@ -25,7 +25,7 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
     $scope.switch1Change = function($event, $isolateScope) {
         if ($scope.Widgets.switch1.datavalue == "List") {
             $scope.Widgets.panel1.show = true;
-            $scope.panel2.show = false;
+            $scope.Widgets.panel2.show = false;
         }
         if ($scope.Widgets.switch1.datavalue == "Grid") {
             $scope.Widgets.panel1.show = false;
@@ -37,6 +37,13 @@ Application.$controller("MainPageController", ["$scope", function($scope) {
 }]);
 
 Application.$controller("alertdialog1Controller", ["$scope",
+    function($scope) {
+        "use strict";
+        $scope.ctrlScope = $scope;
+    }
+]);
+
+Application.$controller("dialog1Controller", ["$scope",
 	function($scope) {
 		"use strict";
 		$scope.ctrlScope = $scope;
@@ -48,27 +55,41 @@ var _MainPage_Variables_ ={}
 </script>
 <script id="Main.html" type="text/ng-template">
 <wm-page name="page1" data-ng-controller="MainPageController">
-    <wm-left-panel name="left_panel1" content="leftnav"></wm-left-panel>
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel>
     <wm-mobile-navbar name="mobile_navbar1"></wm-mobile-navbar>
     <wm-content name="content1">
         <wm-page-content name="page_content1" columnwidth="12">
             <wm-composite name="composite1">
                 <wm-label class="col-xs-4" name="label1"></wm-label>
                 <wm-container class="col-xs-8" name="container1">
-                    <wm-switch class="pull-right" name="switch1" dataset="List, Grid" on-change="switch1Change($event, $scope)" datavalue="List"></wm-switch>
+                    <wm-switch class="pull-right" name="switch1" datavalue="List" on-change="switch1Change($event, $scope)" dataset="List, Grid"></wm-switch>
                 </wm-container>
             </wm-composite>
             <wm-panel class="panel-primary" title="List" name="panel1">
                 <wm-panel-footer name="panel_footer1"></wm-panel-footer>
             </wm-panel>
             <wm-panel class="panel-primary" title="Grid" name="panel2" show="false">
-                <wm-button class="btn-default" caption="Button" type="button" name="button1" on-click="alertdialog1.show"></wm-button>
                 <wm-panel-footer name="panel_footer2"></wm-panel-footer>
+                <wm-button class="btn-default" caption="Button" type="button" name="button2" on-click="dialog1.show"></wm-button>
             </wm-panel>
         </wm-page-content>
     </wm-content>
-    <wm-view class="dialog-view" name="view2">
-        <wm-alertdialog name="alertdialog1" on-ok="goToPage-Main"></wm-alertdialog>
+    <wm-view class="dialog-view" name="view3">
+        <wm-dialog dialogtype="design-dialog" modal="true" name="dialog1">
+            <wm-dialogheader caption="Form" iconclass="glyphicon glyphicon-edit" name="dialogheader1"></wm-dialogheader>
+            <wm-dialogcontent name="dialogcontent1">
+                <wm-form class="app-dialog-form" name="form1">
+                    <wm-composite name="composite2">
+                        <wm-label class="col-xs-4" caption="Name" name="label2"></wm-label>
+                        <wm-text name="text1"></wm-text>
+                    </wm-composite>
+                </wm-form>
+            </wm-dialogcontent>
+            <wm-dialogactions name="dialogactions1">
+                <wm-button class="btn-secondary" caption="Cancel" on-click="closeDialog()" name="button3"></wm-button>
+                <wm-button class="btn-primary" caption="Save" name="button4"></wm-button>
+            </wm-dialogactions>
+        </wm-dialog>
     </wm-view>
 </wm-page>
 </script>

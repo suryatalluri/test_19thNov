@@ -20,7 +20,7 @@ import com.test_19thnov.test_19thnov.*;
  * which is stored in the database.
  */
 @Repository("Test_19thNov.Table2Dao")
-public class Table2Dao extends WMGenericDaoImpl <Table2, Table1Id> {
+public class Table2Dao extends WMGenericDaoImpl <Table2, Table2Id> {
 
    @Autowired
    @Qualifier("Test_19thNovTemplate")

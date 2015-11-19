@@ -1,7 +1,3 @@
-/*Copyright (c) 2015-2016 gmail.com All Rights Reserved.
- This software is the confidential and proprietary information of gmail.com You shall not disclose such Confidential Information and shall use it only in accordance
- with the terms of the source code license agreement you entered into with gmail.com*/
-
 
 package com.test_19thnov.testproc.service;
 
@@ -31,6 +27,17 @@ public class TestprocProcedureExecutorServiceImpl implements TestprocProcedureEx
 	@Qualifier("TestprocWMProcedureExecutor")
 	private WMProcedureExecutor procedureExecutor;
 
+	@Transactional(value = "TestprocTransactionManager")
+	@Override
+
+	public List<Object> executeTestProcedure(java.lang.String City)
+
+	throws QueryParameterMismatchException{
+        Map<String, Object> params = new HashMap<String, Object>();
+        params.put("City", City);
+        return procedureExecutor.executeNamedProcedure("TestProcedure", params);
+
+	}
 
 	@Transactional(value = "TestprocTransactionManager")
 	@Override

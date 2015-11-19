@@ -8,6 +8,18 @@
         
     </author>
     <content src="index.html"/>
+    <feature name="Device">
+        <param name="android-package" value="org.apache.cordova.device.Device"/>
+    </feature>
+    <feature name="Device">
+        <param name="ios-package" value="CDVDevice"/>
+    </feature>
+    <feature name="AppVersion">
+        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion"/>
+    </feature>
+    <feature name="AppVersion">
+        <param name="ios-package" value="AppVersion"/>
+    </feature>
     <feature name="DatePicker">
         <param name="android-package" value="com.plugin.datepicker.DatePickerPlugin"/>
     </feature>
@@ -19,18 +31,6 @@
     </feature>
     <feature name="SplashScreen">
         <param name="ios-package" value="CDVSplashScreen"/>
-    </feature>
-    <feature name="AppVersion">
-        <param name="android-package" value="uk.co.whiteoctober.cordova.AppVersion"/>
-    </feature>
-    <feature name="AppVersion">
-        <param name="ios-package" value="AppVersion"/>
-    </feature>
-    <feature name="Device">
-        <param name="android-package" value="org.apache.cordova.device.Device"/>
-    </feature>
-    <feature name="Device">
-        <param name="ios-package" value="CDVDevice"/>
     </feature>
     <platform name="android">
         <splash density="land-ldpi" height="0" src="resources/images/logos/android/land-Splash-screen-ldpi.png" width="0"/>

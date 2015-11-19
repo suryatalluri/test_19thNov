@@ -10,10 +10,9 @@
         <column name="`ID`" length="255" not-null="true" precision="19"/>
       </key-property>
     </composite-id>
-    <one-to-one name="table2" class="com.test_19thnov.test_19thnov.Table2"/>
   </class>
   <class table="`TABLE2`" name="com.test_19thnov.test_19thnov.Table2" entity-name="com.test_19thnov.test_19thnov.Table2">
-    <composite-id name="id" class="Table1Id">
+    <composite-id name="id" class="Table2Id">
       <key-property name="column2" type="string">
         <column name="`COLUMN2`" length="255" not-null="true" precision="19"/>
       </key-property>
@@ -21,10 +20,5 @@
         <column name="`ID`" length="255" not-null="true" precision="19"/>
       </key-property>
     </composite-id>
-    <one-to-one
-      name="table1"
-      class="com.test_19thnov.test_19thnov.Table1"
-      constrained="true"
-    />
   </class>
 </hibernate-mapping>

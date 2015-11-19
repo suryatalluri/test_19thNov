@@ -66,7 +66,7 @@ public class Table2Controller {
     @RequestMapping(value = "/composite-id", method = RequestMethod.GET)
     @ApiOperation(value = "Returns the Table2 instance associated with the given composite-id.")
     public Table2 getTable2(@RequestParam("column2") String column2, @RequestParam("id") Integer id) throws EntityNotFoundException {
-        Table1Id temp = new Table1Id();
+        Table2Id temp = new Table2Id();
         temp.setColumn2(column2);
         temp.setId(id);
         LOGGER.debug("Getting Table2 with id: {}", temp);
@@ -78,7 +78,7 @@ public class Table2Controller {
     @RequestMapping(value = "/composite-id", method = RequestMethod.DELETE)
     @ApiOperation(value = "Deletes the Table2 instance associated with the given composite-id.")
     public boolean deleteTable2(@RequestParam("column2") String column2, @RequestParam("id") Integer id) throws EntityNotFoundException {
-        Table1Id temp = new Table1Id();
+        Table2Id temp = new Table2Id();
         temp.setColumn2(column2);
         temp.setId(id);
         LOGGER.debug("Deleting Table2 with id: {}", temp);
@@ -89,7 +89,7 @@ public class Table2Controller {
     @RequestMapping(value = "/composite-id", method = RequestMethod.PUT)
     @ApiOperation(value = "Updates the Table2 instance associated with the given composite-id.")
     public Table2 editTable2(@RequestParam("column2") String column2, @RequestParam("id") Integer id, @RequestBody Table2 instance) throws EntityNotFoundException {
-        Table1Id temp = new Table1Id();
+        Table2Id temp = new Table2Id();
         temp.setColumn2(column2);
         temp.setId(id);
         table2Service.delete(temp);
