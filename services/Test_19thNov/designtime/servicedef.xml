@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<service xmlns="http://www.activegrid.com/namespaces/ServiceDefinitions/1.0" id="Test_19thNov" type="DataService" springFile="Test_19thNov.spring.xml">
+    <dataobjects>
+        <dataobject javaType="com.test_19thnov.test_19thnov.Table1">
+            <element name="id" typeRef="com.test_19thnov.test_19thnov.Table1Id" isList="false" allowNull="false"/>
+            <element name="table2" typeRef="com.test_19thnov.test_19thnov.Table2" isList="false" allowNull="true"/>
+        </dataobject>
+        <dataobject javaType="com.test_19thnov.test_19thnov.Table1Id">
+            <element name="column2" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.test_19thnov.test_19thnov.Table2">
+            <element name="id" typeRef="com.test_19thnov.test_19thnov.Table2Id" isList="false" allowNull="false"/>
+            <element name="table1" typeRef="com.test_19thnov.test_19thnov.Table1" isList="false" allowNull="false"/>
+        </dataobject>
+        <dataobject javaType="com.test_19thnov.test_19thnov.Table2Id">
+            <element name="column2" typeRef="java.lang.String" isList="false" allowNull="false"/>
+            <element name="id" typeRef="java.lang.Integer" isList="false" allowNull="false"/>
+        </dataobject>
+    </dataobjects>
+</service>

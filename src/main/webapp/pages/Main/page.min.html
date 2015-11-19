@@ -44,27 +44,28 @@ Application.$controller("alertdialog1Controller", ["$scope",
 ]);
 </script>
 <script id="Main.variables.json">
-var _MainPage_Variables_ ={};
+var _MainPage_Variables_ ={}
 </script>
 <script id="Main.html" type="text/ng-template">
 <wm-page name="page1" data-ng-controller="MainPageController">
-    <wm-left-panel name="left_panel1" content="leftnav"></wm-left-panel>
+    <wm-left-panel content="leftnav" name="left_panel1"></wm-left-panel>
     <wm-mobile-navbar name="mobile_navbar1"></wm-mobile-navbar>
     <wm-content name="content1">
         <wm-page-content name="page_content1" columnwidth="12">
-            <wm-composite name="composite1">
+            <wm-composite name="composite1" paddingtop="10" paddingbottom="10">
                 <wm-label class="col-xs-4" name="label1"></wm-label>
                 <wm-container class="col-xs-8" name="container1">
-                    <wm-switch class="pull-right" name="switch1" dataset="List, Grid" on-change="switch1Change($event, $scope)" datavalue="List"></wm-switch>
+                    <wm-switch class="pull-right" name="switch1" datavalue="List" on-change="switch1Change($event, $scope)" dataset="List, Grid"></wm-switch>
                 </wm-container>
             </wm-composite>
-            <wm-panel class="panel-primary" title="List" name="panel1">
+            <wm-panel class="panel-primary" title="List" name="panel1" paddingtop="10" paddingbottom="10">
                 <wm-panel-footer name="panel_footer1"></wm-panel-footer>
             </wm-panel>
-            <wm-panel class="panel-primary" title="Grid" name="panel2" show="false">
-                <wm-button class="btn-default" caption="Button" type="button" name="button1" on-click="alertdialog1.show"></wm-button>
+            <wm-panel class="panel-primary" title="Grid" name="panel2" show="false" paddingtop="10" paddingbottom="10">
+                <wm-button class="btn-default" type="button" name="button1" caption="Button" on-click="alertdialog1.show"></wm-button>
                 <wm-panel-footer name="panel_footer2"></wm-panel-footer>
             </wm-panel>
+            <wm-button class="btn-default" type="button" name="button2" caption="Button"></wm-button>
         </wm-page-content>
     </wm-content>
     <wm-view class="dialog-view" name="view2">
