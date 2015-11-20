@@ -14,5 +14,10 @@
         <dataobject javaType="TestprocTestProcedurertnType">
             <element name="total" typeRef="java.lang.Integer"/>
         </dataobject>
+        <dataobject javaType="TestprocTestrtnType">
+            <element name="Name" typeRef="java.lang.String"/>
+            <element name="ID" typeRef="java.lang.Integer"/>
+            <element name="City" typeRef="java.lang.String"/>
+        </dataobject>
     </dataobjects>
 </service>

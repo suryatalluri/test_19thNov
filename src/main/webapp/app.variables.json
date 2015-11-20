@@ -336,5 +336,225 @@
 		"pageTransitions": "none",
 		"category": "wm.NavigationVariable",
 		"_id": "wm-goToPage_Page-wm.NavigationVariable-1447939985305"
+	},
+	"goToPage_Page1": {
+		"owner": "App",
+		"operation": "gotoPage",
+		"pageName": "Page1",
+		"dataBinding": {},
+		"pageTransitions": "none",
+		"category": "wm.NavigationVariable",
+		"_id": "wm-goToPage_Page1-wm.NavigationVariable-1447998528335"
+	},
+	"Test_20thNovTable1Data": {
+		"name": "Test_20thNovTable1Data",
+		"type": "Table1",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "Test_20thNov",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "MySQL",
+		"_id": "wm-Test_20thNovTable1Data-wm.LiveVariable-1448008836293",
+		"package": "com.test_19thnov.test_20thnov.Table1",
+		"tableName": "TABLE1",
+		"tableType": "TABLE",
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "id",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "ID",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": ""
+				},
+				{
+					"fieldName": "column2",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "COLUMN2",
+					"isPrimaryKey": false,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": "0"
+				}
+			],
+			"primaryKeys": [
+				"id"
+			],
+			"entityName": "Table1",
+			"fullyQualifiedName": "com.test_19thnov.test_20thnov.Table1",
+			"tableType": "TABLE"
+		},
+		"properties": [
+			"table2ByColumn2"
+		],
+		"relatedTables": [
+			{
+				"columnName": "table2ByColumn2",
+				"relationName": "table2ByColumn2",
+				"type": "Table2",
+				"package": "com.test_19thnov.test_20thnov.Table1",
+				"watchOn": "Test_20thNovTable2Data"
+			}
+		]
+	},
+	"Test_20thNovTable2Data": {
+		"type": "Table2",
+		"isList": true,
+		"owner": "App",
+		"dataSet": {
+			"dataValue": ""
+		},
+		"dataBinding": [
+			{
+				"name": "dataBinding",
+				"type": "object",
+				"fields": []
+			}
+		],
+		"saveInPhonegap": false,
+		"firstRow": 0,
+		"maxResults": 20,
+		"designMaxResults": 10,
+		"operation": "read",
+		"startUpdate": false,
+		"autoUpdate": true,
+		"inFlightBehavior": "executeLast",
+		"transformationRequired": false,
+		"liveSource": "Test_20thNov",
+		"ignoreCase": false,
+		"matchMode": "start",
+		"category": "wm.LiveVariable",
+		"isDefault": true,
+		"dbSystem": "MySQL",
+		"_id": "wm-Test_20thNovTable2Data-wm.LiveVariable-1448009285338",
+		"package": "com.test_19thnov.test_20thnov.Table2",
+		"tableName": "TABLE2",
+		"tableType": "TABLE",
+		"properties": [
+			"table1",
+			"table1ById"
+		],
+		"relatedTables": [
+			{
+				"columnName": "table1",
+				"relationName": "table1",
+				"type": "Table1",
+				"package": "com.test_19thnov.test_20thnov.Table2",
+				"watchOn": "Test_20thNovTable1Data"
+			},
+			{
+				"columnName": "table1ById",
+				"relationName": "table1ById",
+				"type": "Table1",
+				"package": "com.test_19thnov.test_20thnov.Table2",
+				"watchOn": "Test_20thNovTable1Data"
+			}
+		],
+		"propertiesMap": {
+			"columns": [
+				{
+					"fieldName": "table1",
+					"type": "integer",
+					"hibernateType": "integer",
+					"fullyQualifiedType": "integer",
+					"columnName": "ID",
+					"isPrimaryKey": true,
+					"notNull": true,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": true,
+					"defaultValue": "",
+					"relatedTableName": "TABLE1",
+					"relatedEntityName": "Table1",
+					"columns": [
+						{
+							"fieldName": "id",
+							"type": "integer",
+							"hibernateType": "integer",
+							"fullyQualifiedType": "integer",
+							"columnName": "ID",
+							"isPrimaryKey": true,
+							"notNull": true,
+							"length": 255,
+							"precision": 19,
+							"generator": "assigned",
+							"isRelated": false,
+							"defaultValue": ""
+						},
+						{
+							"fieldName": "column2",
+							"type": "integer",
+							"hibernateType": "integer",
+							"fullyQualifiedType": "integer",
+							"columnName": "COLUMN2",
+							"isPrimaryKey": false,
+							"notNull": true,
+							"length": 255,
+							"precision": 19,
+							"generator": "assigned",
+							"isRelated": false,
+							"defaultValue": "0"
+						}
+					],
+					"relatedFieldName": "table1.id",
+					"isList": false
+				},
+				{
+					"fieldName": "column2",
+					"type": "string",
+					"hibernateType": "string",
+					"fullyQualifiedType": "string",
+					"columnName": "COLUMN2",
+					"isPrimaryKey": false,
+					"notNull": false,
+					"length": 255,
+					"precision": 19,
+					"generator": "assigned",
+					"isRelated": false,
+					"defaultValue": null
+				}
+			],
+			"primaryKeys": [
+				"table1"
+			],
+			"entityName": "Table2",
+			"fullyQualifiedName": "com.test_19thnov.test_20thnov.Table2",
+			"tableType": "TABLE"
+		}
 	}
 }

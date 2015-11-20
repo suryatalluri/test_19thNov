@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping package="com.test_19thnov.test_20thnov">
+  <class table="`TABLE2`" entity-name="com.test_19thnov.test_20thnov.Table2" schema="Test_20thNov">
+    <id name="id" type="integer">
+      <column name="`ID`" length="255" not-null="true" precision="19"/>
+      <generator class="foreign">
+        <param name="property">table1</param>
+      </generator>
+    </id>
+    <property name="column2" type="string">
+      <column name="`COLUMN2`" length="255" not-null="false" precision="19"/>
+    </property>
+    <one-to-one
+      name="table1"
+      class="com.test_19thnov.test_20thnov.Table1"
+      constrained="true"
+    />
+  </class>
+  <class table="`TABLE1`" entity-name="com.test_19thnov.test_20thnov.Table1" schema="Test_20thNov">
+    <id name="id" type="integer">
+      <column name="`ID`" length="255" not-null="true" precision="19"/>
+      <generator class="assigned"/>
+    </id>
+    <property name="column2" type="integer">
+      <column name="`COLUMN2`" length="255" not-null="true" precision="19" default="'0'"/>
+    </property>
+    <one-to-one name="table2" class="com.test_19thnov.test_20thnov.Table2"/>
+  </class>
+</hibernate-mapping>
